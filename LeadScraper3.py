@@ -15,7 +15,8 @@ window = CreateGui()
 
 # In[3]:
 
-
+"""
+Previous File interaction
 if(response.status_code):
     try:
         f = open("recallIDLog.txt","r")
@@ -45,6 +46,7 @@ if(response.status_code):
         ii = ii+1
     f.close()
     fDescs.close()
+"""
 
 # In[ ]:
 
