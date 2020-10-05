@@ -4,7 +4,6 @@ Created on Sun Sep 20 21:21:55 2020
 This file creates the GUI for the user to interact with lead related product recalls
 @author: josh
 """
-from WritetoSpreadsheet import *
 import json
 from urllib.request import *
 import tkinter as tk
@@ -13,11 +12,12 @@ import io
 import base64
 import requests
 from io import BytesIO
-"""
+import pandas
 def write():
     global response
-    WritetoSpreadsheet(response)
-"""
+    with open ('response.json','w') as outfile:
+        json.dump(response.json(),outfile)
+    pandas.read_json('response.json').to_excel('RecallReport.xlsx')
 def search(event=None):
     print('happy')
 def nextResponse():
@@ -107,8 +107,8 @@ searchBar = tk.Entry()
 searchBar.bind('<Return>', search)
 searchBar.grid(row=1, column=2)
 
-#writeButton = tk.Button(text = 'Write Data to Spreadsheet', width=15, height=15, bg= 'gray', fg = 'black', command = write)
-#writeButton.grid(row=2,column=2)
+writeButton = tk.Button(wraplength=200, text = 'Write Data to Spreadsheet', width=25, height=15, bg= 'gray', fg = 'black', command = write)
+writeButton.grid(row=2,column=2)
 nextButton = tk.Button(text = 'Next', width = 15, height = 15, bg = 'gray', fg = 'black', command=nextResponse)
 nextButton.grid(row=3,column=2)
 prevButton = tk.Button(text = 'Previous', width = 15, height = 15, bg = 'gray', fg = 'black', command=prevResponse)
