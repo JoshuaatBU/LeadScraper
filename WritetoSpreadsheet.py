@@ -33,34 +33,13 @@ def WritetoSpreadsheet(response):
     
     #Cycle through the response and write the spreadsheet for the responses
     for ii in range (0,len(response.json())):
-        try:
-            sheet_new.cell(row=ii+2,column=1).value = response.json()[ii]['RecallDate']
-        except:
-            sheet_new.cell(row=ii+2,column=1).value = 'No Information'
-        try:
-            sheet_new.cell(row=ii+2,column=2).value = response.json()[ii]['RecallID']
-        except:
-            sheet_new.cell(row=ii+2,column=2).value = 'No Information'
-        try:
-            sheet_new.cell(row=ii+2,column=3).value = response.json()[ii]['Title']
-        except:
-            sheet_new.cell(row=ii+2,column=3).value = 'No Information'
-        try:
-            sheet_new.cell(row=ii+2,column=4).value = response.json()[ii]['Description']
-        except:
-            sheet_new.cell(row=ii+2,column=4).value = 'No Information'
-        try:
-            sheet_new.cell(row=ii+2,column=5).value = response.json()[ii]['ConsumerContact']
-        except:
-            sheet_new.cell(row=ii+2,column=5).value = 'No Information'
-        try:
-            sheet_new.cell(row=ii+2,column=6).value = response.json()[ii]['URL']
-        except:
-            sheet_new.cell(row=ii+2,column=6).value = 'No Information'
-        try:
-            sheet_new.cell(row=ii+2,column=7).value = response.json()[ii]['Products'][0]['Name']
-        except:
-            sheet_new.cell(row=ii+2,column=7).value = 'No Information'
+        sheet_new.cell(row=ii+2,column=1).value = response.json()[ii]['RecallDate']
+        sheet_new.cell(row=ii+2,column=2).value = response.json()[ii]['RecallID']
+        sheet_new.cell(row=ii+2,column=3).value = response.json()[ii]['Title']
+        sheet_new.cell(row=ii+2,column=4).value = response.json()[ii]['Description']
+        sheet_new.cell(row=ii+2,column=5).value = response.json()[ii]['ConsumerContact']
+        sheet_new.cell(row=ii+2,column=6).value = response.json()[ii]['URL']
+        sheet_new.cell(row=ii+2,column=7).value = response.json()[ii]['Products'][0]['Name']
         try:
             sheet_new.cell(row=ii+2,column=8).value = response.json()[ii]['Injuries'][0]['Name']
         except:
@@ -80,7 +59,7 @@ def WritetoSpreadsheet(response):
         try:
             sheet_new.cell(row=ii+2,column=12).value = response.json()[ii]['ManufacturerCountries'][0]['Country']
         except:
-            sheet_new.cell(row=ii+2,column=12).value = 'No Information'
+            sheet_new.cell(row=ii+2,column=13).value = 'No Information'
         try:
             sheet_new.cell(row=ii+2,column=13).value = response.json()[ii]['Hazards'][0]['Name']
         except:

@@ -4,14 +4,15 @@
 # In[1]:
 
 from WritetoSpreadsheet import *
+from CreateGui import *
 import requests
 import json
 import urllib.request
 from PIL import Image, ImageTk
 response = requests.get("https://www.saferproducts.gov/RestWebServices/Recall?format=json&RecallTitle=Lead")
-WritetoSpreadsheet(response)
-im = response.json()[0]['Images'][0]['URL']
-window = CreateGui()
+#window = CreateGui(response)
+#WritetoSpreadsheet(response)
+#window.mainloop()
 
 # In[3]:
 
